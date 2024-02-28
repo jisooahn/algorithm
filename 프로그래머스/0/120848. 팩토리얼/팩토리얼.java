@@ -1,17 +1,19 @@
 class Solution {
     public int solution(int n) {
         int answer = 0;
-        int factorial = 1;
-        int i = 1;
-        while (true) {
-            factorial *= i;
-            if (factorial <= n) {
+        for (int i = 1; i <= 10; i++) {
+            if (factorial(i) <= n) {
                 answer = i;
             } else {
                 break;
             }
-            i++;
         }
         return answer;
+    }
+    public int factorial(int n) {
+        if (n == 1) {
+            return 1;
+        }
+        return n * factorial(n - 1);
     }
 }
