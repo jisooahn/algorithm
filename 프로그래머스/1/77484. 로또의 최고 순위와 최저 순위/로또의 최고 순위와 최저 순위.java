@@ -1,23 +1,20 @@
+import java.util.*;
+
 class Solution {
     public int[] solution(int[] lottos, int[] win_nums) {
-        int[] answer = new int[2];
-        int count = 0;
-        int zeroCount = 0;
-        for (int i = 0; i < lottos.length; i++) {
-            if (lottos[i] == 0) {
+        Set<Integer> set = new HashSet<>();
+        for (int num : win_nums) {
+            set.add(num);
+        }
+        int count = 0, zeroCount = 0;
+        for (int num : lottos) {
+            if (num == 0) {
                 zeroCount++;
-                continue;
-            }
-            for (int j = 0; j < win_nums.length; j++) {
-                if (lottos[i] == win_nums[j]) {
-                    count++;
-                    break;
-                }
+            } else if (set.contains(num)) {
+                count++;
             }
         }
         int[] rank = {6, 6, 5, 4, 3, 2, 1};
-        answer[0] = rank[count + zeroCount];
-        answer[1] = rank[count];
-        return answer;
+        return new int[]{rank[count + zeroCount], rank[count]};
     }
 }
