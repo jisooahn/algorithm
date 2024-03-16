@@ -7,15 +7,14 @@ class Solution {
             if (mode == 0) {
                 if (c != '1' && i % 2 == 0) {
                     answer += c;
-                } else if (c == '1') {
-                    mode = 1;
-                }
+                } 
             } else if (mode == 1) {
                 if (c != '1' && i % 2 != 0) {
                     answer += c;
-                } else if (c == '1') {
-                    mode = 0;
-                }
+                } 
+            }
+            if (c == '1') {
+                mode = mode == 0 ? 1 : 0;
             }
         }
         return answer.length() == 0 ? "EMPTY" : answer;
