@@ -6,13 +6,13 @@ class Solution {
             int s = query[0];
             int e = query[1];
             int k = query[2];
-            int min = Integer.MAX_VALUE;
+            int min = 1000001;
             for (int i = s; i <= e; i++) {
                 if (arr[i] > k) {
                     min = Math.min(min, arr[i]);
                 }
             }
-            answer[idx++] = min == Integer.MAX_VALUE ? -1 : min;
+            answer[idx++] = min == 1000001 ? -1 : min;
         }
         return answer;
     }
