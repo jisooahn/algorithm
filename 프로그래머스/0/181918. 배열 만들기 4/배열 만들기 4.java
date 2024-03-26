@@ -14,8 +14,8 @@ class Solution {
         }
         
         int[] stk = new int[stack.size()];
-        for (int idx = stack.size() - 1; idx >= 0; idx--) {
-            stk[idx] = stack.pop();
+        for (int i = stack.size() - 1; i >= 0; i--) {
+            stk[i] = stack.pop();
         }
         return stk;
     }
