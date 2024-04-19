@@ -1,16 +1,18 @@
+import java.util.Stack;
+
 class Solution {
     boolean solution(String s) {
-        int count = 0;
+        Stack<Character> stack = new Stack<>();
         for (char c : s.toCharArray()) {
             if (c == '(') {
-                count++;
+                stack.push(c);
             } else {
-                count--;
-            }
-            if (count < 0) {
-                break;
+                if (stack.isEmpty()) {
+                    return false;
+                }
+                stack.pop();
             }
         }
-        return count == 0 ? true: false;
+        return stack.isEmpty();
     }
 }
