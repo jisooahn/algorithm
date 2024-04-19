@@ -16,13 +16,19 @@ class Solution {
             int nextRow = curPos[0] + nextPos[0];
             int nextCol = curPos[1] + nextPos[1];
 
-            if ((0 <= nextRow && nextRow < 11) && (0 <= nextCol && nextCol < 11)) {
-                answer.add("" + curPos[0] + curPos[1] + nextRow + nextCol);
-                answer.add("" + nextRow + nextCol + curPos[0] + curPos[1]);
+            if (isValidPosition(nextRow, nextCol)) {
+                String edge = "" + curPos[0] + curPos[1] + nextRow + nextCol;
+                String reverseEdge = "" + nextRow + nextCol + curPos[0] + curPos[1];
+                answer.add(edge);
+                answer.add(reverseEdge);
                 curPos[0] = nextRow;
                 curPos[1] = nextCol;
             }
         }
         return answer.size() / 2;
+    }
+
+    private boolean isValidPosition(int row, int col) {
+        return (0 <= row && row < 11) && (0 <= col && col < 11);
     }
 }
