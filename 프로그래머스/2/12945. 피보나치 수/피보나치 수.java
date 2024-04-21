@@ -1,18 +1,11 @@
 class Solution {
-    static int[] memo;
     public int solution(int n) {
-        memo = new int[n + 1];
-        return f(n);
-    }
-    public int f(int n) {
-        if (memo[n] > 0) {
-            return memo[n];
+        int[] f = new int[n + 1];
+        f[0] = 0;
+        f[1] = 1;
+        for (int i = 2; i <= n; i++) {
+            f[i] = (f[i - 2] + f[i - 1]) % 1234567;
         }
-        if (n == 0) {
-            return memo[n] = 0;
-        } else if (n == 1) {
-            return memo[n] = 1;
-        }
-        return memo[n] = (f(n - 2) + f(n - 1)) % 1234567;
+        return f[n];
     }
 }
