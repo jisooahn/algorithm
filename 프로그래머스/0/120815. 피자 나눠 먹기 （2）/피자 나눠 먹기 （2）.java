@@ -1,8 +1,8 @@
 class Solution {
     public int solution(int n) {
-        for (int i = 6; ; i += 6) {
-            if (i % n == 0) {
-                return i / 6;
+        for (int i = 1; ; i++) {
+            if (i * 6 % n == 0) {
+                return i;
             }
         }
     }
