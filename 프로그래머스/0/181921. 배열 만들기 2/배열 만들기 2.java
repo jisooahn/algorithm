@@ -13,11 +13,6 @@ class Solution {
                 }
             }
         }
-
-        if (stk.isEmpty()) {
-            return new int[]{-1};
-        } else {
-            return stk.stream().mapToInt(Integer::intValue).toArray();
-        }
+        return stk.isEmpty() ? new int[]{-1} : stk.stream().mapToInt(Integer::intValue).toArray();
     }
 }
