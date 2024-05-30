@@ -2,17 +2,17 @@ import java.util.*;
 
 public class Solution {
     public int[] solution(int[] arr) {
-        Stack<Integer> st = new Stack<>();
-        st.push(arr[0]);
+        List<Integer> list = new ArrayList<>();
+        list.add(arr[0]);
         for (int i = 1; i < arr.length; i++) {
-            if (st.peek() != arr[i]) {
-                st.push(arr[i]);
+            if (arr[i] != arr[i - 1]) {
+                list.add(arr[i]);
             }
         }
 
-        int[] answer = new int[st.size()];
+        int[] answer = new int[list.size()];
         for (int i = 0; i < answer.length; i++) {
-            answer[i] = st.get(i);
+            answer[i] = list.get(i);
         }
         return answer;
     }
