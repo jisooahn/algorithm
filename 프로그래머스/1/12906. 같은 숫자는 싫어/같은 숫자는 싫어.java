@@ -3,9 +3,10 @@ import java.util.*;
 public class Solution {
     public int[] solution(int[] arr) {
         Stack<Integer> st = new Stack<>();
-        for (int a : arr) {
-            if (st.isEmpty() || st.peek() != a) {
-                st.push(a);
+        st.push(arr[0]);
+        for (int i = 1; i < arr.length; i++) {
+            if (st.peek() != arr[i]) {
+                st.push(arr[i]);
             }
         }
 
