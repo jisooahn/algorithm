@@ -1,10 +1,15 @@
+import java.util.*;
+
 class Solution {
     public String[] solution(String[] names) {
-        int length = names.length % 5 == 0 ? names.length / 5 : names.length / 5 + 1;
-        String[] answer = new String[length];
-        int idx = 0;
+        List<String> list = new ArrayList<>();
         for (int i = 0; i < names.length; i += 5) {
-            answer[idx++] = names[i];
+            list.add(names[i]);
+        }
+        
+        String[] answer = new String[list.size()];
+        for (int i = 0; i < answer.length; i++) {
+            answer[i] = list.get(i);
         }
         return answer;
     }
