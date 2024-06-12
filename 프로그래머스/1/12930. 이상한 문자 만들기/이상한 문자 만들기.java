@@ -1,18 +1,18 @@
 class Solution {
     public String solution(String s) {
         StringBuilder sb = new StringBuilder();
-        int idx = 0;
+        boolean isEven = true;
         for (char c : s.toCharArray()) {
             if (c == ' ') {
                 sb.append(' ');
-                idx = 0;
+                isEven = true;
             } else {
-                if (idx % 2 == 0) {
+                if (isEven) {
                     sb.append(Character.toUpperCase(c));
                 } else {
                     sb.append(Character.toLowerCase(c));
                 }
-                idx++;
+                isEven = !isEven;
             }
         }
         return sb.toString();
