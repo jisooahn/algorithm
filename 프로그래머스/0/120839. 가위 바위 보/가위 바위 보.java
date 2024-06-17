@@ -1,12 +1,15 @@
+import java.util.*;
+
 class Solution {
     public String solution(String rsp) {
         StringBuilder sb = new StringBuilder();
+        Map<Character, Character> map = Map.of(
+            '0', '5',
+            '2', '0',
+            '5', '2'
+        );
         for (char c : rsp.toCharArray()) {
-            switch (c) {
-                case '0' -> sb.append('5');
-                case '2' -> sb.append('0');
-                case '5' -> sb.append('2');
-            }
+            sb.append(map.get(c));
         }
         return sb.toString();
     }
