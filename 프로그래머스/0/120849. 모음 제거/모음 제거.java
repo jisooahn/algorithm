@@ -1,11 +1,9 @@
 class Solution {
     public String solution(String my_string) {
-        StringBuilder sb = new StringBuilder();
-        for (char c : my_string.toCharArray()) {
-            if (!(c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u')) {
-                sb.append(c);
-            }
+        String[] aeiou = {"a", "e", "i", "o", "u"};
+        for (String a : aeiou) {
+            my_string = my_string.replace(a, "");
         }
-        return sb.toString();
+        return my_string;
     }
 }
