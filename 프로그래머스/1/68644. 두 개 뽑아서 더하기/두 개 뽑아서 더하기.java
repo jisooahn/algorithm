@@ -2,18 +2,17 @@ import java.util.*;
 
 class Solution {
     public int[] solution(int[] numbers) {
-        List<Integer> list = new ArrayList<>();
+        Set<Integer> set = new HashSet<>();
         for (int i = 0; i < numbers.length; i++) {
             for (int j = i + 1; j < numbers.length; j++) {
-                if (!list.contains(numbers[i] + numbers[j])) {
-                    list.add(numbers[i] + numbers[j]);
-                }
+                set.add(numbers[i] + numbers[j]);
             }
         }
         
-        int[] answer = new int[list.size()];
-        for (int i = 0; i < answer.length; i++) {
-            answer[i] = list.get(i);
+        int[] answer = new int[set.size()];
+        int idx = 0;
+        for (int num : set) {
+            answer[idx++] = num;
         }
         
         Arrays.sort(answer);
