@@ -2,25 +2,23 @@ class Solution {
     public int[][] solution(int n) {
         int[][] answer = new int[n][n];
         int num = 1;
-        int rowStart = 0, rowEnd = n - 1;
-        int colStart = 0, colEnd = n - 1;
+        int start = 0;
+        int end = n - 1;
         while (num <= n * n) {
-            for (int i = colStart; i <= colEnd; i++) {
-                answer[rowStart][i] = num++;
+            for (int j = start; j <= end; j++) {
+                answer[start][j] = num++;
             }
-            rowStart++;
-            for (int i = rowStart; i <= rowEnd; i++) {
-                answer[i][colEnd] = num++;
+            for (int i = start + 1; i <= end; i++) {
+                answer[i][end] = num++;
             }
-            colEnd--;
-            for (int i = colEnd; i >= colStart; i--) {
-                answer[rowEnd][i] = num++;
+            for (int j = end - 1; j >= start; j--) {
+                answer[end][j] = num++;
             }
-            rowEnd--;
-            for (int i = rowEnd; i >= rowStart; i--) {
-                answer[i][colStart] = num++;
+            for (int i = end - 1; i > start; i--) {
+                answer[i][start] = num++;
             }
-            colStart++;
+            start++;
+            end--;
         }
         return answer;
     }
