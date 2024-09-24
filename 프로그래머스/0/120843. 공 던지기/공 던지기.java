@@ -7,11 +7,9 @@ class Solution {
         for (int number : numbers) {
             queue.add(number);
         }
-        int count = 1;
-        while (count < k) {
+        for (int i = 1; i < k; i++) {
             queue.add(queue.poll());
             queue.add(queue.poll());
-            count++;
         }
         return queue.poll();
     }
