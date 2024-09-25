@@ -1,16 +1,20 @@
+import java.util.*;
+
 class Solution {
     public int[] solution(int[] numbers, String direction) {
         int[] answer = new int[numbers.length];
+        Deque<Integer> deque = new LinkedList<>();
+        for (int number : numbers) {
+            deque.add(number);
+        }
         if ("right".equals(direction)) {
-            answer[0] = numbers[numbers.length - 1];
-            for (int i = 1; i < numbers.length; i++) {
-                answer[i] = numbers[i - 1];
-            }
+            deque.addFirst(deque.pollLast());
         } else {
-            answer[numbers.length - 1] = numbers[0];
-            for (int i = 0; i < numbers.length - 1; i++) {
-                answer[i] = numbers[i + 1];
-            }
+            deque.addLast(deque.pollFirst());
+        }
+        int idx = 0;
+        while (!deque.isEmpty()) {
+            answer[idx++] = deque.pollFirst();
         }
         return answer;
     }
