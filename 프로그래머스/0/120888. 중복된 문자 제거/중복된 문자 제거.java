@@ -1,11 +1,11 @@
 class Solution {
     public String solution(String my_string) {
-        String answer = "";
+        StringBuilder sb = new StringBuilder();
         for (String s : my_string.split("")) {
-            if (!answer.contains(s)) {
-                answer += s;
+            if (sb.indexOf(s) == -1) {
+                sb.append(s);
             }
         }
-        return answer;
+        return sb.toString();
     }
 }
