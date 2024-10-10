@@ -1,15 +1,10 @@
 class Solution {
     public int solution(int i, int j, int k) {
-        int answer = 0;
+        StringBuilder sb = new StringBuilder();
         for (int idx = i; idx <= j; idx++) {
-            int tmp = idx;
-            while (tmp != 0) {
-                if (tmp % 10 == k) {
-                    answer++;
-                }
-                tmp /= 10;
-            }
+            sb.append(idx);
         }
-        return answer;
+        String str = sb.toString();
+        return str.length() - str.replace(Integer.toString(k), "").length();
     }
 }
