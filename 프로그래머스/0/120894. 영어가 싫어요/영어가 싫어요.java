@@ -1,9 +1,21 @@
+import java.util.Map;
+
 class Solution {
     public long solution(String numbers) {
-        String[] strNumbers = {"zero", "one", "two", "three", "four",
-                               "five", "six", "seven", "eight", "nine"};
-        for (int i = 0; i < strNumbers.length; i++) {
-            numbers = numbers.replace(strNumbers[i], Integer.toString(i));
+        Map<String, String> map = Map.of(
+            "zero", "0",
+            "one", "1",
+            "two", "2",
+            "three", "3",
+            "four", "4",
+            "five", "5",
+            "six", "6",
+            "seven", "7",
+            "eight", "8",
+            "nine", "9"
+        );
+        for (String key : map.keySet()) {
+            numbers = numbers.replace(key, map.get(key));
         }
         return Long.parseLong(numbers);
     }
