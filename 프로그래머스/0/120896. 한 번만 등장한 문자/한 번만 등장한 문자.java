@@ -2,7 +2,7 @@ import java.util.*;
 
 class Solution {
     public String solution(String s) {
-        Map<Character, Integer> map = new HashMap<>();
+        Map<Character, Integer> map = new TreeMap<>();
         for (char c : s.toCharArray()) {
             map.put(c, map.getOrDefault(c, 0) + 1);
         }
@@ -12,8 +12,6 @@ class Solution {
                 sb.append(key);
             }
         }
-        char[] chars = sb.toString().toCharArray();
-        Arrays.sort(chars);
-        return new String(chars);
+        return sb.toString();
     }
 }
