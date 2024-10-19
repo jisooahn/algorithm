@@ -1,15 +1,19 @@
+import java.util.*;
+
 class Solution {
     public String solution(String s) {
-        int[] counts = new int[26];
+        Map<Character, Integer> map = new HashMap<>();
         for (char c : s.toCharArray()) {
-            counts[c - 'a']++;
+            map.put(c, map.getOrDefault(c, 0) + 1);
         }
         StringBuilder sb = new StringBuilder();
-        for (int i = 0; i < counts.length; i++) {
-            if (counts[i] == 1) {
-                sb.append((char) ('a' + i));
+        for (char key : map.keySet()) {
+            if (map.get(key) == 1) {
+                sb.append(key);
             }
         }
-        return sb.toString();
+        char[] chars = sb.toString().toCharArray();
+        Arrays.sort(chars);
+        return new String(chars);
     }
 }
