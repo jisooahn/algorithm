@@ -1,10 +1,8 @@
 class Solution {
     public boolean solution(int x) {
         int sum = 0;
-        int tmp = x;
-        while (tmp > 0) {
-            sum += tmp % 10;
-            tmp /= 10;
+        for (char c : Integer.toString(x).toCharArray()) {
+            sum += c - '0';
         }
         return x % sum == 0;
     }
