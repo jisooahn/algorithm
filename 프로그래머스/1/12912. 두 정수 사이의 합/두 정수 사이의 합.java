@@ -5,11 +5,6 @@ class Solution {
             a = b;
             b = tmp;
         }
-        
-        long answer = 0;
-        for (int i = a; i <= b; i++) {
-            answer += i;
-        }
-        return answer;
+        return (long) (a + b) * (b - a + 1) / 2;
     }
 }
