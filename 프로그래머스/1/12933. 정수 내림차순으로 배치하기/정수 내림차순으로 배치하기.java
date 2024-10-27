@@ -1,11 +1,11 @@
 import java.util.Arrays;
-import java.util.Collections;
 
 class Solution {
     public long solution(long n) {
-        String[] arr = Long.toString(n).split("");
-        Arrays.sort(arr, Collections.reverseOrder());
-        String str = String.join("", arr);
+        char[] chars = Long.toString(n).toCharArray();
+        Arrays.sort(chars);
+        StringBuilder sb = new StringBuilder(new String(chars));
+        String str = sb.reverse().toString();
         return Long.parseLong(str);
     }
 }
