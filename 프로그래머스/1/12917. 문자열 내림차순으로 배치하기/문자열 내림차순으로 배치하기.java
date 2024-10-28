@@ -1,10 +1,10 @@
 import java.util.Arrays;
-import java.util.Collections;
 
 class Solution {
     public String solution(String s) {
-        String[] arr = s.split("");
-        Arrays.sort(arr, Collections.reverseOrder());
-        return String.join("", arr);
+        char[] arr = s.toCharArray();
+        Arrays.sort(arr);
+        StringBuilder sb = new StringBuilder(new String(arr));
+        return sb.reverse().toString();
     }
 }
