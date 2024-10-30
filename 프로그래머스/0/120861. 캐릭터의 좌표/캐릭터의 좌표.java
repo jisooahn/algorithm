@@ -6,14 +6,10 @@ class Solution {
         
         for (String key : keyinput) {
             switch (key) {
-                case "right": now[0] = Math.min(now[0] + 1, maxX);
-                    break;
-                case "left": now[0] = Math.max(now[0] - 1, -maxX);
-                    break;
-                case "up": now[1] = Math.min(now[1] + 1, maxY);
-                    break;
-                case "down": now[1] = Math.max(now[1] - 1, -maxY);
-                    break;
+                case "right" -> now[0] = Math.min(now[0] + 1, maxX);
+                case "left" -> now[0] = Math.max(now[0] - 1, -maxX);
+                case "up" -> now[1] = Math.min(now[1] + 1, maxY);
+                case "down" -> now[1] = Math.max(now[1] - 1, -maxY);
             }
         }
         return now;
