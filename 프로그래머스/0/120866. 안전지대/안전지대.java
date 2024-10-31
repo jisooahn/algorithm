@@ -23,7 +23,7 @@ class Solution {
             for (int k = 0; k < 8; k++) {
                 int nextX = x + dx[k];
                 int nextY = y + dy[k];
-                if (0 <= nextX && nextX < rows && 0 <= nextY && nextY < cols) {
+                if (0 <= nextX && nextX < rows && 0 <= nextY && nextY < cols && board[nextX][nextY] == 0) {
                     board[nextX][nextY] = 1;
                 }
             }
