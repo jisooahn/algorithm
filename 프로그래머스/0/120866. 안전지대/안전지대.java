@@ -12,10 +12,9 @@ class Solution {
                     for (int k = 0; k < DIRECTIONS.length; k++) {
                         int nearX = i + DIRECTIONS[k][0];
                         int nearY = j + DIRECTIONS[k][1];
-                        if (!(0 <= nearX && nearX < n && 0 <= nearY && nearY < n)) {
-                            continue;
+                        if (0 <= nearX && nearX < n && 0 <= nearY && nearY < n) {
+                            dangerZone[nearX][nearY] = true;
                         }
-                        dangerZone[nearX][nearY] = true;
                     }
                 }
             }
