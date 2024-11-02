@@ -1,19 +1,23 @@
 class Solution {
-    private static int[][] DIRECTIONS = {{-1, -1}, {-1, 0}, {-1, 1}, {0, -1}, {0, 1}, {1, -1}, {1, 0}, {1, 1}};
-    
     public int solution(int[][] board) {
         int n = board.length;
-        boolean[][] dangerZone = new boolean[n][n];
+        int[][] directions = {{-1, -1}, {-1, 0}, {-1, 1}, {0, -1}, {0, 1}, {1, -1}, {1, 0}, {1, 1}};
+        int[][] extendedBoard = new int[n + 2][n + 2];
         
-        for (int i = 0; i < n; i++) {
-            for (int j = 0; j < n; j++) {
-                if (board[i][j] == 1) {
-                    dangerZone[i][j] = true;
-                    for (int k = 0; k < DIRECTIONS.length; k++) {
-                        int nearX = i + DIRECTIONS[k][0];
-                        int nearY = j + DIRECTIONS[k][1];
-                        if (0 <= nearX && nearX < n && 0 <= nearY && nearY < n) {
-                            dangerZone[nearX][nearY] = true;
+        for (int i = 1; i <= n; i++) {
+            for (int j = 1; j <= n; j++) {
+                extendedBoard[i][j] = board[i - 1][j - 1];
+            }
+        }
+        
+        for (int i = 1; i <= n; i++) {
+            for (int j = 1; j <= n; j++) {
+                if (extendedBoard[i][j] == 1) {
+                    for (int[] direction : directions) {
+                        int x = i + direction[0];
+                        int y = j + direction[1];
+                        if (extendedBoard[x][y] == 0) {
+                            extendedBoard[x][y] = 2;
                         }
                     }
                 }
@@ -21,9 +25,9 @@ class Solution {
         }
         
         int answer = 0;
-        for (int i = 0; i < n; i++) {
-            for (int j = 0; j < n; j++) {
-                if (!dangerZone[i][j]) {
+        for (int i = 1; i <= n; i++) {
+            for (int j = 1; j <= n; j++) {
+                if (extendedBoard[i][j] == 0) {
                     answer++;
                 }
             }
