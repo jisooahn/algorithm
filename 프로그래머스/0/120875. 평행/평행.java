@@ -1,15 +1,15 @@
 class Solution {
     public int solution(int[][] dots) {
-        if (calculateGradient(dots[0], dots[1]) == calculateGradient(dots[2], dots[3])) {
-            return 1;
-        }
+        int[][] pairs = {
+            {0, 1, 2, 3},
+            {0, 2, 1, 3},
+            {0, 3, 1, 2}
+        };
         
-        if (calculateGradient(dots[0], dots[2]) == calculateGradient(dots[1], dots[3])) {
-            return 1;
-        }
-        
-        if (calculateGradient(dots[0], dots[3]) == calculateGradient(dots[1], dots[2])) {
-            return 1;
+        for (int[] pair : pairs) {
+            if (calculateGradient(dots[pair[0]], dots[pair[1]]) == calculateGradient(dots[pair[2]], dots[pair[3]])) {
+                return 1;
+            }
         }
         
         return 0;
