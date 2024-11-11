@@ -6,19 +6,11 @@ public class Main {
         int h = sc.nextInt();
         int m = sc.nextInt();
         int s = sc.nextInt();
-        int time = sc.nextInt();
-        s += time;
-        if (s > 59) {
-            m += s / 60;
-            s %= 60;
-        }
-        if (m > 59) {
-            h += m / 60;
-            m %= 60;
-        }
-        if (h > 23) {
-            h %= 24;
-        }
+        int additionalSeconds = sc.nextInt();
+        int totalSeconds = (h * 60 * 60) + (m * 60) + s + additionalSeconds;
+        h = (totalSeconds / (60 * 60)) % 24;
+        m = (totalSeconds % (60 * 60)) / 60;
+        s = totalSeconds % 60;
         System.out.println(h + " " + m + " " + s);
     }
 }
