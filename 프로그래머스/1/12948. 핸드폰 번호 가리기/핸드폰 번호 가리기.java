@@ -1,9 +1,7 @@
 class Solution {
     public String solution(String phone_number) {
-        char[] chArr = phone_number.toCharArray();
-        for (int i = 0; i < phone_number.length() - 4; i++) {
-            chArr[i] = '*';
-        }
-        return new String(chArr);
+        String stars = "*".repeat(phone_number.length() - 4);
+        String lastDigits = phone_number.substring(phone_number.length() - 4);
+        return stars + lastDigits;
     }
 }
