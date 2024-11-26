@@ -4,7 +4,7 @@ class Solution {
             return false;
         }
         for (char c : s.toCharArray()) {
-            if (!('0' <= c && c <= '9')) {
+            if (!Character.isDigit(c)) {
                 return false;
             }
         }
