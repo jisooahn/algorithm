@@ -8,12 +8,7 @@ class Solution {
         
         for (int i = 0; i < s.length(); i++) {
             char c = s.charAt(i);
-            if (map.containsKey(c)) {
-                int lastIndex = map.get(c);
-                answer[i] = i - lastIndex;
-            } else {
-                answer[i] = -1;
-            }
+            answer[i] = i - map.getOrDefault(c, i + 1);
             map.put(c, i);
         }
         return answer;
