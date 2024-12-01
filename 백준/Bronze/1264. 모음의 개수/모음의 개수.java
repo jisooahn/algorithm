@@ -1,10 +1,13 @@
+import java.util.Arrays;
+import java.util.HashSet;
 import java.util.Scanner;
+import java.util.Set;
 
 public class Main {
     
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        char[] vowels = {'A', 'E', 'I', 'O', 'U'};
+        Set<Character> vowels = new HashSet<>(Arrays.asList('A', 'E', 'I', 'O', 'U'));
         
         while (true) {
             String s = sc.nextLine();
@@ -15,10 +18,8 @@ public class Main {
             s = s.toUpperCase();
             int count = 0;
             for (char c : s.toCharArray()) {
-                for (char vowel : vowels) {
-                    if (c == vowel) {
-                        count++;
-                    }
+                if (vowels.contains(c)) {
+                    count++;
                 }
             }
             
