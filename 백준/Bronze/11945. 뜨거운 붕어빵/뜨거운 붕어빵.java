@@ -7,9 +7,14 @@ public class Main {
         int n = sc.nextInt();
         int m = sc.nextInt();
 
-        while (sc.hasNext()) {
-            StringBuilder input = new StringBuilder(sc.next());
-            System.out.println(input.reverse());
+        if (m > 0) {
+            for (int i = 0; i < n; i++) {
+                char[] charArray = sc.next().toCharArray();
+                for (int j = m - 1; j >= 0; j--) {
+                    System.out.print(charArray[j]);
+                }
+                System.out.println();
+            }
         }
     }
 }
