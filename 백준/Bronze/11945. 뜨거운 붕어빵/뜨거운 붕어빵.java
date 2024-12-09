@@ -7,11 +7,9 @@ public class Main {
         int n = sc.nextInt();
         int m = sc.nextInt();
 
-        for (int i = 0; i < n; i++) {
-            while (sc.hasNext()) {
-                StringBuilder input = new StringBuilder(sc.next());
-                System.out.println(input.reverse());
-            }
+        while (sc.hasNext()) {
+            StringBuilder input = new StringBuilder(sc.next());
+            System.out.println(input.reverse());
         }
     }
 }
