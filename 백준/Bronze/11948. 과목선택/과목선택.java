@@ -1,3 +1,4 @@
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Main {
@@ -5,26 +6,17 @@ public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         
-        int sum = 0;
-        int minA = Integer.MAX_VALUE;
-        int minB = Integer.MAX_VALUE;
-        
-        for (int i = 0; i < 4; i++) {
-            int tmp = sc.nextInt();
-            sum += tmp;
-            if (tmp < minA) {
-                minA = tmp;
-            }
+        int[] scores = new int[4];
+        for (int i = 0; i < scores.length; i++) {
+            scores[i] = sc.nextInt();
         }
+        Arrays.sort(scores);
+        int sumA = scores[1] + scores[2] + scores[3];
         
-        for (int i = 0; i < 2; i++) {
-            int tmp = sc.nextInt();
-            sum += tmp;
-            if (tmp < minB) {
-                minB = tmp;
-            }
-        }
+        int e = sc.nextInt();
+        int f = sc.nextInt();
+        int sumB = Math.max(e, f);
         
-        System.out.println(sum - minA - minB);
+        System.out.println(sumA + sumB);
     }
 }
