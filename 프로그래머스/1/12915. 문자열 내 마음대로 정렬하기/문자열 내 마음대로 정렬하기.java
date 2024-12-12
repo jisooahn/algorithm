@@ -6,7 +6,9 @@ class Solution {
     public String[] solution(String[] strings, int n) {
         List<String> list = new ArrayList<>();
         for (int i = 0; i < strings.length; i++) {
-            list.add(strings[i].charAt(n) + strings[i]);
+            StringBuilder sb = new StringBuilder();
+            sb.append(strings[i].charAt(n)).append(strings[i]);
+            list.add(sb.toString());
         }
         
         Collections.sort(list);
