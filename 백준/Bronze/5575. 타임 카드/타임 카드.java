@@ -1,3 +1,5 @@
+import java.time.Duration;
+import java.time.LocalTime;
 import java.util.Scanner;
 
 public class Main {
@@ -12,13 +14,13 @@ public class Main {
             int endMinute = sc.nextInt();
             int endSecond = sc.nextInt();
             
-            int start = startHour * 3600 + startMinute * 60 + startSecond;
-            int end = endHour * 3600 + endMinute * 60 + endSecond;
-            
-            int work = end - start;
-            int hours = work / 3600;
-            int minutes = (work % 3600) / 60;
-            int seconds = (work % 3600) % 60;
+            LocalTime start = LocalTime.of(startHour, startMinute, startSecond);
+            LocalTime end = LocalTime.of(endHour, endMinute, endSecond);
+
+            Duration work = Duration.between(start, end);
+            long hours = work.toHours();
+            int minutes = work.toMinutesPart();
+            int seconds = work.toSecondsPart();
             
             System.out.println(hours + " " + minutes + " " + seconds);
         }
