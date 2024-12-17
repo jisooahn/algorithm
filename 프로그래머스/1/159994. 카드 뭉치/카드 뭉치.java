@@ -1,17 +1,13 @@
-import java.util.Arrays;
-import java.util.LinkedList;
-import java.util.Queue;
-
 class Solution {
     public String solution(String[] cards1, String[] cards2, String[] goal) {
-        Queue<String> queCards1 = new LinkedList<>(Arrays.asList(cards1));
-        Queue<String> queCards2 = new LinkedList<>(Arrays.asList(cards2));
+        int index1 = 0;
+        int index2 = 0;
 
         for (String word : goal) {
-            if (!queCards1.isEmpty() && queCards1.peek().equals(word)) {
-                queCards1.poll();
-            } else if (!queCards2.isEmpty() && queCards2.peek().equals(word)) {
-                queCards2.poll();
+            if (index1 < cards1.length && cards1[index1].equals(word)) {
+                index1++;
+            } else if (index2 < cards2.length && cards2[index2].equals(word)) {
+                index2++;
             } else {
                 return "No";
             }
