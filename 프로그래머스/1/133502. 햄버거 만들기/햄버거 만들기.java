@@ -1,13 +1,22 @@
+import java.util.Stack;
+
 class Solution {
     public int solution(int[] ingredient) {
         int answer = 0;
-        StringBuilder sb = new StringBuilder();
+        Stack<Integer> st = new Stack<>();
         for (int i : ingredient) {
-            sb.append(i);
-            if (sb.length() >= 4) {
-                if (sb.substring(sb.length() - 4).equals("1231")) {
+            st.push(i);
+            
+            if (st.size() >= 4) {
+                if (st.get(st.size() - 4) == 1
+                    && st.get(st.size() - 3) == 2
+                    && st.get(st.size() - 2) == 3
+                    && st.get(st.size() - 1) == 1) {
+                    st.pop();
+                    st.pop();
+                    st.pop();
+                    st.pop();
                     answer++;
-                    sb.delete(sb.length() - 4, sb.length());
                 }
             }
         }
