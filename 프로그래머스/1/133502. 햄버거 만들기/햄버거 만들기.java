@@ -7,8 +7,7 @@ class Solution {
             if (sb.length() >= 4) {
                 if (sb.substring(sb.length() - 4).equals("1231")) {
                     answer++;
-                    String s = sb.substring(0, sb.length() - 4);
-                    sb = new StringBuilder(s);
+                    sb.delete(sb.length() - 4, sb.length());
                 }
             }
         }
