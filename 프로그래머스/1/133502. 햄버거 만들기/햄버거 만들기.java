@@ -1,22 +1,16 @@
-import java.util.Stack;
-
 class Solution {
     public int solution(int[] ingredient) {
         int answer = 0;
-        Stack<Integer> st = new Stack<>();
+        int index = 0;
+        int[] st = new int[ingredient.length];
         for (int i : ingredient) {
-            st.push(i);
-            
-            if (st.size() >= 4 && st.peek() == 1) {
-                if (st.get(st.size() - 4) == 1
-                    && st.get(st.size() - 3) == 2
-                    && st.get(st.size() - 2) == 3) {
-                    st.pop();
-                    st.pop();
-                    st.pop();
-                    st.pop();
-                    answer++;
-                }
+            st[index++] = i;
+            if (index >= 4 && st[index - 4] == 1
+               && st[index - 3] == 2
+               && st[index - 2] == 3
+               && st[index - 1] == 1) {
+                answer++;
+                index -= 4;
             }
         }
         return answer;
