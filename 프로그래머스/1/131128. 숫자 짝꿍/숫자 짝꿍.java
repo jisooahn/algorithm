@@ -16,12 +16,13 @@ class Solution {
             sb.append(String.valueOf(i).repeat(minCount));
         }
         
-        if (sb.length() == 0) {
+        String answer = sb.toString();
+        if ("".equals(answer)) {
             return "-1";
         }
-        if (sb.charAt(0) == '0') {
+        if (answer.startsWith("0")) {
             return "0";
         }
-        return sb.toString();
+        return answer;
     }
 }
