@@ -1,7 +1,7 @@
 class Solution {
     public int solution(int n, int m, int[] section) {
-        int answer = 1;
-        int paintedSection = section[0] + m - 1;
+        int answer = 0;
+        int paintedSection = 0;
         for (int currentSection : section) {
             if (currentSection > paintedSection) {
                 answer++;
