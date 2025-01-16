@@ -9,11 +9,8 @@ public class Main {
         if (a == b && b == c) {
             System.out.println(10000 + a * 1000);
         } else if (a == b || b == c || c == a) {
-            if (a == b) {
-                System.out.println(1000 + a * 100);
-            } else {
-                System.out.println(1000 + c * 100);
-            }
+            int num = (a == b) ? a : c;
+            System.out.println(1000 + num * 100);
         } else {
             int max = Math.max(Math.max(a, b), c);
             System.out.println(max * 100);
