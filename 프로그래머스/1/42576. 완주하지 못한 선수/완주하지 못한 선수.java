@@ -1,20 +1,14 @@
-import java.util.HashMap;
-import java.util.Map;
+import java.util.Arrays;
 
 class Solution {
     public String solution(String[] participant, String[] completion) {
-        Map<String, Integer> map = new HashMap<>();
-        for (String player : participant) {
-            map.put(player, map.getOrDefault(player, 0) + 1);
-        }
-        for (String player : completion) {
-            int count = map.get(player) - 1;
-            if (count == 0) {
-                map.remove(player);
-            } else {
-                map.put(player, count);
+        Arrays.sort(participant);
+        Arrays.sort(completion);
+        for (int i = 0; i < completion.length; i++) {
+            if (!participant[i].equals(completion[i])) {
+                return participant[i];
             }
         }
-        return map.keySet().iterator().next();
+        return participant[participant.length - 1];
     }
 }
