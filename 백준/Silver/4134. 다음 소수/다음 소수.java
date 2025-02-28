@@ -19,7 +19,7 @@ public class Main {
         if (n < 2) {
             return false;
         }
-        if (n == 2) {
+        if (n == 2 || n == 3) {
             return true;
         }
         if (n % 2 == 0) {
