@@ -9,9 +9,9 @@ class Solution {
         return answer;
     }
     
-    private boolean isPrime(int num) {
-        for (int i = 2; i <= Math.sqrt(num); i++) {
-            if (num % i == 0) {
+    public boolean isPrime(int n) {
+        for (int i = 2; i <= Math.sqrt(n); i++) {
+            if (n % i == 0) {
                 return false;
             }
         }
