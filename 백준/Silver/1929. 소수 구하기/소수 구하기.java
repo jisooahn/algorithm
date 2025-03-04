@@ -14,7 +14,7 @@ public class Main {
             if (numbers[i] == 0) {
                 continue;
             }
-            for (int j = i + i; j <= n; j += i) {
+            for (int j = i * i; j <= n; j += i) {
                 numbers[j] = 0;
             }
         }
